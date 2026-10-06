@@ -62,8 +62,10 @@ rejected with HTTP 422.
 
 ```bash
 .venv/bin/pip install -r requirements.txt   # already installed in .venv
-.venv/bin/uvicorn scan_view222.main:app --port 8216
+.venv/bin/uvicorn scan_view222.main:app --port 18222
 ```
+
+For concurrent instances, use another free port such as 18223 and update the request URL to match.
 
 ## Try it
 
@@ -72,7 +74,7 @@ rejected with HTTP 422.
 curl -s -o reconstruction.zip \
   -F "file=@samples/sample_sphere.npz" \
   -F 'params={"origin": [-0.4, -0.4, -0.4], "dims": [40, 40, 40], "voxel_size": 0.02, "trunc": 0.06}' \
-  http://127.0.0.1:8216/reconstruct
+  http://127.0.0.1:18222/reconstruct
 unzip -l reconstruction.zip
 ```
 
